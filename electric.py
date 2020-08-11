@@ -1,6 +1,5 @@
 class Electric():
-    
-    @property 
-    def can_charge(self):
-        return True 
-    
+    can_charge = True 
+
+    pass
+

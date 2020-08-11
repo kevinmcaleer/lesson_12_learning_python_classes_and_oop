@@ -1,33 +1,45 @@
 class Colour():
-    def __init__(self,r=0,g=0,b=0):
-        self.__red = r
-        self.__green = g
-        self.__blue = b
+    r = 0
+    g = 0
+    b = 0
 
-    @property
-    def r(self):
-        return self.__red
-    
-    @property
-    def g(self):
-        return self.__green
-
-    @property
-    def b(self):
-        return self.__blue
-
-    def __add__(self,other):
-        self.__red += other.r
-        self.__green += other.g
-        self.__blue += other.b 
-        return Colour(self.__red,self.__green, self.__blue)
+    def __init__(self,r=None,g=None,b=None):
+        if r is None:
+            self.r = 0
+        else:
+            self.r = r
+        if g is None:
+            self.g = 0
+        else:
+            self.g = g
+        if b is None:
+            self.b = 0
+        else:
+            self.b = b
 
     def show(self):
-        print(self.__red, self.__green, self.__blue)
+        print("RGB values:",self.r, self.g, self.b)
 
+    def __add__(self, other):
+        self.r += other.r
+        self.g += other.g
+        self.b += other.b
+        return Colour(self.r, self.g, self.b)
 
-c1 = Colour(100,100,100)
-c2 = Colour(100,100,100)
-c3 = c1 + c2 
+    def __sub__(self, other):
+        self.r -= other.r
+        self.g -= other.g
+        self.b -= other.b
+        return Colour(self.r, self.g, self.b)
 
-c3.show()
+red = Colour(255,0,0)
+red.show()
+
+green = Colour(0,255,0)
+green.show()
+
+yellow = red + green 
+
+red2 = yellow - green
+yellow.show()
+red2.show()
